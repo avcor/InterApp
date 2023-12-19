@@ -2,7 +2,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import * as React from 'react';
 import {Text, View} from 'react-native';
-import ExploreTab from '../screens/tabScreens/ExploreTab';
+import ExploreTab from '../screens/tabScreens/Explore/ExploreTab';
 import SavedTab from '../screens/tabScreens/SavedTab';
 import TripsTab from '../screens/tabScreens/TripsTab';
 import ProfileTab from '../screens/tabScreens/ProfileTab';

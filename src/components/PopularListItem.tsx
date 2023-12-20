@@ -1,9 +1,9 @@
 import {FC} from 'react';
 import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
 import Item from '../types/PopularType';
-import {beach_hut} from '../utils/ImageExporter';
-import {roboto_bold, roboto_light, roboto_regular} from '../utils/FontConstant';
+import {roboto_bold, roboto_regular} from '../utils/FontConstant';
 import {white} from '../utils/colorHexCodes';
+import React  from 'react';
 
 const PopularListitem: FC<{item: Item}> = ({item}) => {
   return (

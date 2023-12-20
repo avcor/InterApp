@@ -39,7 +39,7 @@ const ExploreTab = () => {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    flex: 1,
+    height:'100%',
     paddingHorizontal: 20,
     backgroundColor: white,
   },
@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
   },
   list: {
     flex: 0.75,
+    borderColor: black,
   },
   textContianer: {
     flex: 1,

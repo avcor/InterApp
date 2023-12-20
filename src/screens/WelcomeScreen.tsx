@@ -1,6 +1,4 @@
 import {
-  Button,
-  Image,
   ImageBackground,
   StyleSheet,
   Text,
@@ -9,19 +7,15 @@ import {
 } from 'react-native';
 import {beach_hut} from '../utils/ImageExporter';
 import {
-  montserrat_bold,
-  montserrat_regular,
-  montserrat_thin,
   roboto_bold,
   roboto_light,
-  roboto_medium,
-  roboto_regular,
 } from '../utils/FontConstant';
 import {black, purple_main, transparent, white} from '../utils/colorHexCodes';
 import LinearGradient from 'react-native-linear-gradient';
 import {useNavigation} from '@react-navigation/native';
 import {RootStackParams} from '../navigation/MainNavigation';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import React from 'react';
 
 const WelcomeScreen = () => {
   const navigation =

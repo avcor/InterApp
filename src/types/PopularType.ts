@@ -1,7 +1,12 @@
-type Item = {
+export type popularPlaceType = {
   place: string;
-  hotels: number;
+  hotels: string;
   imageUrl: string;
 };
 
-export default Item;
+export type dealType = {
+  deal: string;
+  discount: string,
+  end: string,
+}
+

@@ -1,7 +1,7 @@
-import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import BottomTabnavigation from './BottomTabNavigation';
+import React from 'react';
 
 export type RootStackParams = {
   WelcomeScreen: any;

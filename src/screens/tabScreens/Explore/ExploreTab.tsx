@@ -1,45 +1,28 @@
-import {FlatList, Image, StyleSheet, Text, TextInput, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import {
   black,
-  light_grey,
   purple_light,
-  purple_main,
-  text_grey,
   white,
 } from '../../../utils/colorHexCodes';
-import {
-  montserrat_bold,
-  montserrat_regular,
-  montserrat_thin,
-  roboto_bold,
-  roboto_medium,
-} from '../../../utils/FontConstant';
-import {profile_photo, search_icon} from '../../../utils/ImageExporter';
-import React from 'react';
+import React, { useState } from 'react';
 import ExploreList from './ExploreList';
 import SearchInput from './SearchInput';
+import ProfileHeader from '../../../components/ProfileHeader';
 
 const ExploreTab = () => {
+
+  const [searchKey, searchFunction] = useState('');
+
   return (
     <View style={styles.mainContainer}>
-      <View style={styles.userDetailsContainer}>
-        <View style={styles.textContianer}>
-          <Text style={styles.textHello}>Hello Michael!</Text>
-          <Text style={styles.text2}>Find deals</Text>
-        </View>
-        <Image
-          style={styles.profile}
-          resizeMode={'cover'}
-          source={profile_photo}
-        />
-      </View>
+      <ProfileHeader />
 
       <View style={styles.searchBox}>
-        <SearchInput />
+        <SearchInput searchCity={searchFunction} />
       </View>
 
       <View style={styles.list}>
-        <ExploreList />
+        <ExploreList searchValue={searchKey} />
       </View>
     </View>
   );
@@ -47,32 +30,13 @@ const ExploreTab = () => {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    flex: 1,
+    height: '100%',
     paddingHorizontal: 20,
     backgroundColor: white,
   },
-  userDetailsContainer: {
-    flex: 0.17,
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-  },
   list: {
     flex: 0.75,
-  },
-  textContianer: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    height: '50%',
-  },
-  textHello: {
-    fontSize: 18,
-    color: text_grey,
-  },
-  text2: {
-    fontSize: 33,
-    fontFamily: roboto_bold,
-    color: black,
+    borderColor: black,
   },
   profile: {
     maxWidth: '20%',

@@ -1,45 +1,35 @@
-import {FlatList, Image, StyleSheet, Text, TextInput, View} from 'react-native';
+import { Image, StyleSheet, TextInput, View } from 'react-native';
 import {
-  black,
   light_grey,
-  purple_light,
-  purple_main,
-  text_grey,
-  white,
 } from '../../../utils/colorHexCodes';
-import {
-  montserrat_bold,
-  montserrat_regular,
-  montserrat_thin,
-  roboto_bold,
-  roboto_medium,
-} from '../../../utils/FontConstant';
-import {profile_photo, search_icon} from '../../../utils/ImageExporter';
-import PopularListitem from '../../../components/PopularListItem';
-import Item from '../../../types/PopularType';
-import React from 'react';
-import ExploreList from './ExploreList';
+import { search_icon } from '../../../utils/ImageExporter';
+import React, { FC } from 'react';
 
-const SearchInput = () => {
+type props = {
+  searchCity: any
+}
+
+const SearchInput: FC<props> = ({ searchCity }) => {
+  console.log('search render')
   return (
     <>
       <View style={styles.container}>
         <TextInput
           style={styles.input}
-          placeholder="User Nickname"
-          onChangeText={searchString => {}}
+          placeholder="Search city"
+          onChangeText={(txt) => { searchCity(txt); }}
           underlineColorAndroid="transparent"
         />
         <Image
           style={styles.searchIcon}
           resizeMode={'contain'}
-          source={search_icon}></Image>
+          source={search_icon} />
       </View>
     </>
   );
 };
 
-export default SearchInput;
+export default React.memo(SearchInput);
 
 const styles = StyleSheet.create({
   container: {

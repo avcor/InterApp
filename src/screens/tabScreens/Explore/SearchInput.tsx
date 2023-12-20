@@ -1,18 +1,23 @@
-import {Image, StyleSheet, TextInput, View} from 'react-native';
+import { Image, StyleSheet, TextInput, View } from 'react-native';
 import {
   light_grey,
 } from '../../../utils/colorHexCodes';
-import {search_icon} from '../../../utils/ImageExporter';
-import React from 'react';
+import { search_icon } from '../../../utils/ImageExporter';
+import React, { FC } from 'react';
 
-const SearchInput = () => {
+type props = {
+  searchCity: any
+}
+
+const SearchInput: FC<props> = ({ searchCity }) => {
+  console.log('search render')
   return (
     <>
       <View style={styles.container}>
         <TextInput
           style={styles.input}
-          placeholder="User Nickname"
-          onChangeText={()=>{}}
+          placeholder="Search city"
+          onChangeText={(txt) => { searchCity(txt); }}
           underlineColorAndroid="transparent"
         />
         <Image
@@ -24,7 +29,7 @@ const SearchInput = () => {
   );
 };
 
-export default SearchInput;
+export default React.memo(SearchInput);
 
 const styles = StyleSheet.create({
   container: {

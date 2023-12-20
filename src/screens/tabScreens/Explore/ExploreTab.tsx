@@ -1,20 +1,12 @@
-import {FlatList, Image, StyleSheet, Text, TextInput, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import {
   black,
-  light_grey,
   purple_light,
-  purple_main,
   text_grey,
   white,
 } from '../../../utils/colorHexCodes';
-import {
-  montserrat_bold,
-  montserrat_regular,
-  montserrat_thin,
-  roboto_bold,
-  roboto_medium,
-} from '../../../utils/FontConstant';
-import {profile_photo, search_icon} from '../../../utils/ImageExporter';
+import {roboto_bold} from '../../../utils/FontConstant';
+import {profile_photo} from '../../../utils/ImageExporter';
 import React from 'react';
 import ExploreList from './ExploreList';
 import SearchInput from './SearchInput';

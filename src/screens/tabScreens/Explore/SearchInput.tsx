@@ -1,24 +1,9 @@
-import {FlatList, Image, StyleSheet, Text, TextInput, View} from 'react-native';
+import {Image, StyleSheet, TextInput, View} from 'react-native';
 import {
-  black,
   light_grey,
-  purple_light,
-  purple_main,
-  text_grey,
-  white,
 } from '../../../utils/colorHexCodes';
-import {
-  montserrat_bold,
-  montserrat_regular,
-  montserrat_thin,
-  roboto_bold,
-  roboto_medium,
-} from '../../../utils/FontConstant';
-import {profile_photo, search_icon} from '../../../utils/ImageExporter';
-import PopularListitem from '../../../components/PopularListItem';
-import Item from '../../../types/PopularType';
+import {search_icon} from '../../../utils/ImageExporter';
 import React from 'react';
-import ExploreList from './ExploreList';
 
 const SearchInput = () => {
   return (
@@ -27,13 +12,13 @@ const SearchInput = () => {
         <TextInput
           style={styles.input}
           placeholder="User Nickname"
-          onChangeText={searchString => {}}
+          onChangeText={()=>{}}
           underlineColorAndroid="transparent"
         />
         <Image
           style={styles.searchIcon}
           resizeMode={'contain'}
-          source={search_icon}></Image>
+          source={search_icon} />
       </View>
     </>
   );

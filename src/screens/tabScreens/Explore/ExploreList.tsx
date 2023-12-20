@@ -1,22 +1,14 @@
-import {FlatList, Image, StyleSheet, Text, TextInput, View} from 'react-native';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
 import {
   black,
-  light_grey,
-  purple_light,
   purple_main,
-  text_grey,
-  white,
 } from '../../../utils/colorHexCodes';
 import {
-  montserrat_bold,
-  montserrat_regular,
-  montserrat_thin,
   roboto_bold,
-  roboto_medium,
 } from '../../../utils/FontConstant';
-import {profile_photo, search_icon} from '../../../utils/ImageExporter';
 import PopularListitem from '../../../components/PopularListItem';
 import Item from '../../../types/PopularType';
+import React  from 'react';
 
 const dealsData = [
   {
@@ -60,37 +52,44 @@ const placesData: Item[] = [
 ];
 
 const ExploreList = () => {
+  dealsData;
   return (
-    <>
+    <View>
       <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: 10,
-        }}>
-        <Text style={{fontFamily: roboto_bold, color: black, fontSize: 17}}>
+        style={styles.textContainer}>
+        <Text style={styles.text}>
           Popular places
         </Text>
         <Text
-          style={{fontFamily: roboto_bold, color: purple_main, fontSize: 16}}>
+          style={styles.hyperText}>
           View All
         </Text>
       </View>
 
       <FlatList
-        columnWrapperStyle={{
-          justifyContent: 'space-between',
-          marginTop: 10,
-        }}
+        columnWrapperStyle={styles.colWrapper}
         data={placesData}
         numColumns={2}
         renderItem={i => {
           return <PopularListitem item={i.item} />;
         }}
       />
-    </>
+    </View>
   );
 };
 
+const styles = StyleSheet.create({
+  textContainer:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  text:{fontFamily: roboto_bold, color: black, fontSize: 17},
+  hyperText:{fontFamily: roboto_bold, color: purple_main, fontSize: 16},
+  colWrapper:{
+    justifyContent: 'space-between',
+    marginTop: 10,
+  },
+});
 export default ExploreList;

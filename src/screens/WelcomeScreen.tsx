@@ -1,31 +1,63 @@
 import {
+  ActivityIndicator,
   ImageBackground,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
-import {beach_hut} from '../utils/ImageExporter';
+import { beach_hut } from '../utils/ImageExporter';
 import {
   roboto_bold,
   roboto_light,
 } from '../utils/FontConstant';
-import {black, purple_main, transparent, white} from '../utils/colorHexCodes';
+import { black, purple_main, transparent, white } from '../utils/colorHexCodes';
 import LinearGradient from 'react-native-linear-gradient';
-import {useNavigation} from '@react-navigation/native';
-import {RootStackParams} from '../navigation/MainNavigation';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { RootStackParams } from '../navigation/MainNavigation';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import React, { useContext, useEffect, useState } from 'react';
+import { NameContext } from '../context/NameContext';
 
 const WelcomeScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
+
+  const { value, updateValue } = useContext(NameContext);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    console.log('render - default')
+    NameApi()
+      .then((res) => {
+        updateValue(res)
+        setLoading(false);
+      })
+      .finally(() => {
+      })
+
+  }, [])
+
+  useEffect(() => {
+    console.log('render - value -', value)
+  }, [value])
+
+  useEffect(() => {
+    console.log('render - loading ', loading);
+  }, [loading])
+
+  useEffect(() => {
+    console.log('render - setLoading ', setLoading);
+  }, [setLoading])
+
+
+  console.log('render - main')
   return (
     <View style={styles.container}>
       <ImageBackground style={styles.backgroundGradient} source={beach_hut}>
         <LinearGradient
-          start={{x: 0, y: 0.5}}
-          end={{x: 0, y: 1}}
+          start={{ x: 0, y: 0.5 }}
+          end={{ x: 0, y: 1 }}
           colors={[transparent, black]} // Two transparent colors: red and green with 50% opacity
           style={styles.backgroundGradient}
         />
@@ -41,12 +73,22 @@ const WelcomeScreen = () => {
           onPress={() => {
             navigation.navigate('Home');
           }}>
-          <Text style={styles.btnText}>Let's start</Text>
+          {loading ? <ActivityIndicator size="large" color="#00ff00" /> :
+            <Text style={styles.btnText}>{value}</Text>
+          }
         </TouchableOpacity>
       </View>
     </View>
   );
 };
+
+const NameApi = () => {
+  return new Promise((res) => {
+    setTimeout(() => {
+      res('Abhisheke')
+    }, 3000)
+  })
+}
 
 const styles = StyleSheet.create({
   container: {
